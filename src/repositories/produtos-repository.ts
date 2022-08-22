@@ -3,8 +3,8 @@ import database from './database'
 
 const itensRepository = {
 	criar: (produto: produtos, callback: (id?: number) => void) => {
-		const sql = 'INSERT INTO produtos (nome, descricao) VALUES (?, ?)'
-		const params = [produto.nome, produto.descricao]
+		const sql = 'INSERT INTO produtos (nome, descricao, preco) VALUES (?, ?, ?)'
+		const params = [produto.nome, produto.descricao, produto.preco]
 		database.run(sql, params, function(_err) {
 			callback(this?.lastID)
 		})
@@ -23,8 +23,8 @@ const itensRepository = {
 	},
 
 	atualizar: (id: number, produto: produtos, callback: (notFound: boolean) => void) => {
-		const sql = 'UPDATE produtos SET nome = ?, descricao = ? WHERE id = ?'
-		const params = [produto.nome, produto.descricao, id]
+		const sql = 'UPDATE produtos SET nome = ?, descricao = ?, preco = ? WHERE id = ?'
+		const params = [produto.nome, produto.descricao, produto.preco, id]
 		database.run(sql, params, function(_err) {
 			callback(this.changes === 0)
 		})

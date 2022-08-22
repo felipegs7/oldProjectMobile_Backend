@@ -4,7 +4,7 @@ import ClientesRepository from '../repositories/clientes-repository'
 
 const clientesRouter = express.Router()
 
-clientesRouter.post('/clientes/', (req,res) => {
+clientesRouter.post('/', (req,res) => {
     const clientes: clientes = req.body
     ClientesRepository.criar(clientes,(id) => {
         if (id) {
@@ -15,11 +15,11 @@ clientesRouter.post('/clientes/', (req,res) => {
     })
 })
 
-clientesRouter.get('/clientes', (req, res) => {
+clientesRouter.get('/', (req, res) => {
 	ClientesRepository.lerTodos((clientes) => res.json(clientes))
 })
 
-clientesRouter.get('/clientes/:id', (req, res) => {
+clientesRouter.get('/:id', (req, res) => {
 	const id: number = +req.params.id
 	ClientesRepository.ler(id, (clientes) => {
 		if (clientes) {
@@ -30,7 +30,7 @@ clientesRouter.get('/clientes/:id', (req, res) => {
 	})
 })
 
-clientesRouter.put('/clientes/:id', (req, res) => {
+clientesRouter.put('/:id', (req, res) => {
 	const id: number = +req.params.id
 	ClientesRepository.atualizar(id, req.body, (notFound) => {
 		if (notFound) {
@@ -41,7 +41,7 @@ clientesRouter.put('/clientes/:id', (req, res) => {
 	})
 })
 
-clientesRouter.delete('/clientes/:id', (req, res) => {
+clientesRouter.delete('/:id', (req, res) => {
 	const id: number = +req.params.id
 	ClientesRepository.apagar(id, (notFound) => {
         if (notFound) {

@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
-import produtosRouter from './routers/produtos-router'
+
+import produtosRouter from './routers/produtos-router';
+import clientesRouter from './routers/clientes-router';
 
 // Porta do servidor
 const PORT = process.env.PORT || 4000
@@ -26,7 +28,8 @@ app.use(cors({
 }))
 
 // Rotas
-app.use('/api', produtosRouter)
+app.use('/produtos', produtosRouter)
+app.use('/clientes', clientesRouter)
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
