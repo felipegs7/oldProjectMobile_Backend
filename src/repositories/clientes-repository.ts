@@ -10,10 +10,11 @@ const clientesRepository = {
 		})
 	},
 
+	//funções
 	lerTodos: (callback: (clientes: clientes[]) => void) => {
 		const sql = 'SELECT * FROM clientes'
 		const params: any[] = []
-		database.all(sql, params, (_err, rows) => callback(rows))
+		database.all(sql, params, (_err, rows) => callback(rows)) 
 	},
 
 	ler: (id: number, callback: (produto?: clientes) => void) => {
