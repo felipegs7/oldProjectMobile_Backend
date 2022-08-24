@@ -27,7 +27,7 @@ const SQL_itens_CREATE = `
 		senha INT
 	)`
 
-
+//
 // const Inserir = 'insert into itens (nome,descricao) values("wesker","descricao")'
 const Inserir = 'select * from itens'
 

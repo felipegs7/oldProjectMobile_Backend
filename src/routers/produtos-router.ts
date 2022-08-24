@@ -16,7 +16,7 @@ produtosRouter.post('/', (req, res) => {
         }
     })
 })
-
+//
 produtosRouter.get('/', (req, res) => {
 	console.log("ueba")
 	//produtosRepository.lerTodos((produtos) => console.log(produtos))

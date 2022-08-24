@@ -14,7 +14,7 @@ clientesRouter.post('/', (req,res) => {
         }
     })
 })
-
+//
 clientesRouter.get('/', (req, res) => {
 	ClientesRepository.lerTodos((clientes) => res.json(clientes))
 })

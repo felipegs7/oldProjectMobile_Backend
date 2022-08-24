@@ -29,7 +29,7 @@ const itensRepository = {
 			callback(this.changes === 0)
 		})
 	},
-
+//
 	apagar: (id: number, callback: (notFound: boolean) => void) => {
 		const sql = 'DELETE FROM produtos WHERE id = ?'
 		const params = [id]
