@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import produtosRouter from './routers/produtos-router';
-import clientesRouter from './routers/clientes-router';
+import usuariosRouter from './routers/usuarios-router';
 
 // Porta do servidor
 const PORT = process.env.PORT || 4000
@@ -17,6 +17,13 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // Endpoint raiz
 app.get('/', (req, res) => {
 	res.send('Bem-vindo!')
@@ -29,7 +36,7 @@ app.use(cors({
 
 // Rotas
 app.use('/produtos', produtosRouter)
-app.use('/clientes', clientesRouter)
+app.use('/usuarios', usuariosRouter)
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
