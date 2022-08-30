@@ -1,4 +1,4 @@
-type produtos = {
+type Produtos = {
 //
 	id?: number
 	nome: string
@@ -6,4 +6,4 @@ type produtos = {
 	preco: number
 }
 
-export default produtos
+export default Produtos

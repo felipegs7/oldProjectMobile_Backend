@@ -1,1 +1,1 @@
-import autenticacao from '../models/leiloes'
+import autenticacao from '../models/leilao'

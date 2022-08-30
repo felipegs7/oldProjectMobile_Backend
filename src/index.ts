@@ -3,6 +3,9 @@ import cors from 'cors'
 
 import produtosRouter from './routers/produtos-router';
 import usuariosRouter from './routers/usuarios-router';
+import lanceRepository from './repositories/lance-repository';
+import lanceRouter from './routers/lance-router';
+import leilaoRouter from './routers/leilao-router';
 
 // Porta do servidor
 const PORT = process.env.PORT || 4000
@@ -31,12 +34,14 @@ app.get('/', (req, res) => {
 
 // Cors
 app.use(cors({
-	origin: ['http://localhost:19006']
+	origin: '*'
 }))
 
 // Rotas
 app.use('/produtos', produtosRouter)
 app.use('/usuarios', usuariosRouter)
+app.use('/lances', lanceRouter)  
+app.use('/leiloes', leilaoRouter)
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
