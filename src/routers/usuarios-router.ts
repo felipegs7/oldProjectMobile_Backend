@@ -14,7 +14,7 @@ usuariosRouter.post('/', (req,res) => {
         }
     })
 })
-//
+
 usuariosRouter.get('/', (req, res) => {
 	usuariosRepository.lerTodos((usuarios) => res.json(usuarios))
 })

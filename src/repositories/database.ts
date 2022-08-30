@@ -14,9 +14,9 @@ const DBSOURCE = 'db.sqlite'
 	CREATE TABLE usuarios (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		nome TEXT,
-		cpf INT,
+		CPF INT,
 		email TEXT,
-		senha INT
+		senha INT,
 	)`
 	const SQL_LEILOES_CREATE = `
 	CREATE TABLE leiloes (

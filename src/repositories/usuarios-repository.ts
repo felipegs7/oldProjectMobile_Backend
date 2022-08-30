@@ -3,8 +3,8 @@ import database from './database'
 
 const usuariosRepository = {
 	criar: (usuarios: usuarios, callback: (id?: number) => void) => {
-		const sql = 'INSERT INTO usuarios (nome, senha, email, cpf) VALUES (?, ?, ?, ?)'
-		const params = [usuarios.nome, usuarios.CPF, usuarios.senha, usuarios.email]
+		const sql = 'INSERT INTO usuarios (nome,cpf,email,senha) VALUES (?, ?, ?, ?)'
+		const params = [usuarios.nome, usuarios.CPF, usuarios.email, usuarios.senha]
 		database.run(sql, params, function(_err) {
 			callback(this?.lastID)
 		})
