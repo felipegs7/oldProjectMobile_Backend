@@ -23,6 +23,16 @@ const leiloesRepository = {
 		database.get(sql, params, (_err, row) => callback(row))
 	},
 
+	lerAtivo: (callback: (leilao?: leiloes) => void) => {
+		const sql = 'SELECT * FROM leiloes WHERE DATETIME("now") < DATETIME(termino) ORDER BY termino';
+		database.get(sql, (err, row) => {
+			if (err) {
+				console.error(err);
+			}
+			callback(row)
+		})
+	},
+
 	atualizar: (id: number, leilao: leiloes, callback: (notFound: boolean) => void) => {
 		const sql = 'UPDATE leiloes SET id_produto = ?, preco_minimo = ?, preco_arremate  = ? WHERE id = ?'
 		const params = [leilao.id_produto, leilao.preco_minimo, ]

@@ -1,12 +1,12 @@
 import express from 'express'
-import { createModuleResolutionCache } from 'typescript'
-import leilao from '../models/leilao'
+import Leilao from '../models/leilao'
+import leiloesRepository from '../repositories/leiloes-repository'
 import leilaoRepository from '../repositories/leiloes-repository'
 
 const leilaoRouter = express.Router()
 
 leilaoRouter.post('/', (req, res) => {
-	const leilao: leilao = req.body
+	const leilao: Leilao = req.body
 	leilaoRepository.criar(leilao, (id) => {
         if (id) {
            res.status(201).location(`/leilao/${id}`).send()
@@ -22,6 +22,16 @@ leilaoRouter.get('/', (req, res) => {
 	//leilaoRepository.lerTodos((leilao) => console.log(leilao))
 	leilaoRepository.lerTodos((leilao) => res.json(leilao))
 })
+
+leilaoRouter.get('/ativo', (req, res) => {
+	leiloesRepository.lerAtivo((leilao) => {
+		if (leilao) {
+			res.status(200).json(leilao)
+		} else {
+			res.status(404).send();
+		}
+	})
+});
 
 leilaoRouter.get('/:id', (req, res) => {
 	const id: number = +req.params.id
