@@ -1,4 +1,5 @@
 import lance from '../models/lance'
+import Leilao from '../models/leilao'
 import leiloes from '../models/leilao'
 import database from './database'
 
@@ -48,7 +49,6 @@ const leiloesRepository = {
 			callback(this.changes === 0)
 		})
 	},
-	
 }
 
 
