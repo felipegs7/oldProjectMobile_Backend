@@ -1,5 +1,5 @@
 import lance from '../models/lance'
-import Leilao from '../models/leilao'
+import leilao from '../models/leilao'
 import leiloes from '../models/leilao'
 import database from './database'
 
@@ -33,6 +33,16 @@ const leiloesRepository = {
 			callback(row)
 		})
 	},
+
+	lerAlto: (id: number, callback: (lance?: lance) => void) => {
+		const sql = `SELECT * FROM lances WHERE id_leilao = ? ORDER BY preco DESC`;
+		const params = [id]
+		database.get (sql, params,(erro, lance) =>{
+			callback(lance)
+		})
+			
+	},
+
 
 	atualizar: (id: number, leilao: leiloes, callback: (notFound: boolean) => void) => {
 		const sql = 'UPDATE leiloes SET id_produto = ?, preco_minimo = ?, preco_arremate  = ? WHERE id = ?'

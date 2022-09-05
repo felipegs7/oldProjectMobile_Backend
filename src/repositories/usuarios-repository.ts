@@ -10,7 +10,7 @@ const usuariosRepository = {
 		})
 	},
 
-	//funções
+
 	lerTodos: (callback: (usuarios: usuarios[]) => void) => {
 		const sql = 'SELECT * FROM usuarios'
 		const params: any[] = []

@@ -67,8 +67,15 @@ leilaoRouter.delete('/:id', (req, res) => {
 
 })
 
-leilaoRouter.get('/ativo', (req, res) =>{
-	
+leilaoRouter.get('/:id/lances/mais_alto', (req, res) =>{
+	const id: number = +req.params.id
+	leilaoRepository.lerAlto (id, (lance) => {
+		if (lance) {
+		res.status(202).json(lance)
+		}else {
+			res.status(404).send()
+		}
+	})
 })
 
 export default leilaoRouter
