@@ -45,8 +45,8 @@ const leiloesRepository = {
 
 
 	atualizar: (id: number, leilao: leiloes, callback: (notFound: boolean) => void) => {
-		const sql = 'UPDATE leiloes SET id_produto = ?, preco_minimo = ?, preco_arremate  = ? WHERE id = ?'
-		const params = [leilao.id_produto, leilao.preco_minimo, ]
+		const sql = 'UPDATE leiloes SET id_produto = ?, preco_minimo = ? WHERE id = ?'
+		const params = [leilao.id_produto, leilao.preco_minimo, id ]
 		database.run(sql, params, function(_err) {
 			callback(this.changes === 0)
 		})

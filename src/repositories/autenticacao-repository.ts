@@ -1,1 +1,13 @@
-import autenticacao from '../models/leilao'
+
+import autenticacaoRepository from '../routers/autenticacao-router'
+
+
+
+
+
+
+
+
+
+
+export default autenticacaoRepository

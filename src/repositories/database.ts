@@ -7,7 +7,8 @@ const DBSOURCE = 'db.sqlite'
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		nome TEXT,
 		descricao TEXT,
-		preco INT
+		preco INT,
+		imagem TEXT
 	)`
 
 	const SQL_USUARIOS_CREATE = `
