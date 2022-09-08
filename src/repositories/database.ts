@@ -17,7 +17,9 @@ const DBSOURCE = 'db.sqlite'
 		nome TEXT,
 		CPF INT,
 		email TEXT,
-		senha INT
+		senha INT,
+		confirmarsenha INT,
+		admin INT
 	)`
 	const SQL_LEILOES_CREATE = `
 	CREATE TABLE leiloes (

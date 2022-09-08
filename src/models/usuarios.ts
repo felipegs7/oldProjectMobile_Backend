@@ -4,7 +4,8 @@ type usuarios = {
     CPF: number
     email: string
     senha: number
-    //administrador: boolean
+    confirmarsenhar: number
+    admin: boolean
 }
 
 export default usuarios

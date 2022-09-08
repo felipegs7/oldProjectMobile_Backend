@@ -12,13 +12,24 @@ const lanceRepository = {
 			callback(this?.lastID)
 		})
 	},
+	
 	ler: (id: number, callback: (lance?: Lance) => void) => {
-		const sql = 'SELECT * lances WHERE id = ?'
+		const sql = 'SELECT * FROM lances WHERE id = ?';
 		const params = [id]
 		database.get(sql, params, function(_err, row) {
 			callback(row)
 		})
 	},
+
+	lerAlto: (id: number, callback: (lance?: Lance) => void) => {
+		const sql = `SELECT * FROM lances WHERE id_leilao = ? ORDER BY preco DESC`;
+		const params = [id]
+		database.get (sql, params,(erro, lance) =>{
+			callback(lance)
+		})
+			
+	},
+
 }
 
 export default lanceRepository
