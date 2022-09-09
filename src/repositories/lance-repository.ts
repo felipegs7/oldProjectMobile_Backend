@@ -30,6 +30,11 @@ const lanceRepository = {
 			
 	},
 
+	excluirLeilao: ({
+
+	})
+
+	
 }
 
 export default lanceRepository

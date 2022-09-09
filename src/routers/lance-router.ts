@@ -9,16 +9,16 @@ const lanceRouter = express.Router()
 
   
     
-    lanceRouter.get('/:id/lances/mais_alto', (req, res) =>{
-        const id: number = +req.params.id
-        lanceRepository.lerAlto (id, (lance) => {
-            if (lance) {
-            res.status(200).json(lance)
-            }else {
-                res.status(404).send()
-            }
-        })
-    })
+    // lanceRouter.get('/:id/lances/mais_alto', (req, res) =>{
+    //     const id: number = +req.params.id
+    //     lanceRepository.lerAlto (id, (lance) => {
+    //         if (lance) {
+    //         res.status(200).json(lance)
+    //         }else {
+    //             res.status(404).send()
+    //         }
+    //     })
+    
    
  
 

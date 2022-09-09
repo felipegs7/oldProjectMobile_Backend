@@ -15,6 +15,7 @@ const DBSOURCE = 'db.sqlite'
 	CREATE TABLE usuarios (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		nome TEXT,
+		sobrenome TEXT,
 		CPF INT,
 		email TEXT,
 		senha INT,
@@ -47,6 +48,12 @@ const DBSOURCE = 'db.sqlite'
 		FOREIGN KEY (id_usuario)
 		References usuarios (id)
 		
+	)`
+
+	const SQL_AUTENTICACAO_CREATE =`
+	CREATE TABLE autenticacao (
+		id INTEGER PRIMARY KEY AUTOINCREMENT, 
+		token TEXT,
 	)`
 		
 
