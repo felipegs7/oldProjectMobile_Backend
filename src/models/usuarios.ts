@@ -4,7 +4,7 @@ type usuarios = {
     sobrenome: string
     CPF: number
     email: string
-    senha: number
+    senha: string
     confirmarsenhar: number
     admin: boolean
 }

@@ -1,3 +1,4 @@
+import Login from '../models/login'
 import usuarios from '../models/usuarios'
 import database from './database'
 
@@ -38,6 +39,16 @@ const usuariosRepository = {
 			callback(this.changes === 0)
 		})
 	},
+
+	verificar: (login:Login, callback: (usuarios: usuarios) => void) => {
+		const sql = 'SELECT *FROM usuarios WHERE email = ? and senha = ?'
+		const params = [login.email, login.senha]
+		database.get(sql, params, function(_err, row) {
+			callback(row)
+		})
+	},
+
+	
 }
 
 export default usuariosRepository

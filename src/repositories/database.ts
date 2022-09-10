@@ -18,7 +18,7 @@ const DBSOURCE = 'db.sqlite'
 		sobrenome TEXT,
 		CPF INT,
 		email TEXT,
-		senha INT,
+		senha TEXT,
 		confirmarsenha INT,
 		admin INT
 	)`

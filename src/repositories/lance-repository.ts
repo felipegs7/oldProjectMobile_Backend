@@ -30,9 +30,7 @@ const lanceRepository = {
 			
 	},
 
-	excluirLeilao: ({
-
-	})
+	
 
 	
 }

@@ -5,6 +5,7 @@ import produtosRouter from './routers/produtos-router';
 import usuariosRouter from './routers/usuarios-router';
 import lanceRouter from './routers/lance-router';
 import leilaoRouter from './routers/leilao-router';
+import autenticacaoRouter from './routers/autenticacao-router';
 
 // Porta do servidor
 const PORT = process.env.PORT || 4000
@@ -41,6 +42,7 @@ app.use('/produtos', produtosRouter)
 app.use('/usuarios', usuariosRouter)
 app.use('/lances', lanceRouter)  
 app.use('/leiloes', leilaoRouter)
+app.use('/autenticacao', autenticacaoRouter)
 
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
